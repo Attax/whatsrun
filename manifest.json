@@ -24,9 +24,8 @@
     "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
     "content_scripts": [{
         "js": ["static/js/vue.min.js", "static/js/axios.min.js", "static/js/app.js"],
-        "css": ["static/css/common.css"],
         "matches": ["http://*/*", "https://*/*"],
-        "run_at": "document_end"
+        "run_at": "document_start"
     }],
     "permissions": [
         "cookies",
