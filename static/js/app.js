@@ -1,4 +1,11 @@
 (function() {
+    chrome.browserAction.onClicked.addListener(function callback() {
+        console.log('xxx')
+    });
+
+    chrome.runtime.onInstalled.addListener(function callback() {
+
+    })
     var app = new Vue({
         el: "#J-Whatsrun-App",
         data: {
@@ -25,8 +32,9 @@
         },
         methods: {
             init: function() {
-                this.getDomain();
+
                 this.initi18n();
+                this.getStack();
             },
             initi18n: function() {
                 var _that = this;
@@ -34,6 +42,11 @@
                     _that.languages = languageList;
                 });
             },
+
+            detectStack: function() {
+
+            },
+
             getStack: function() {
                 axios.get('https://www.baidu.com/sugrec', {
                         params: {
@@ -62,7 +75,7 @@
 
         },
         created: function() {
-
+            this.getDomain();
             console.log('created')
         },
         mounted: function() {
