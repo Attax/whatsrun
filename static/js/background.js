@@ -29,12 +29,18 @@
 
     // }, 2000);
 
-
+    const EXTENSION_URL = /chrome:\/\/\w+/;
 
     chrome.browserAction.onClicked.addListener(function(tab) {
 
         chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
-            //发送注入命令
+            console.info(tabs)
+
+            if (!tabs[0].url || EXTENSION_URL.test(tabs[0].url)) {
+                return false;
+            }
+            console.log(EXTENSION_URL.test(tabs[0].url))
+                //发送注入命令
             chrome.tabs.sendMessage(tabs[0].id, { action: "Inject" }, function(response) {
                 console.log(response);
                 chrome.browserAction.setTitle({
