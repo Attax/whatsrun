@@ -1,11 +1,11 @@
 (function() {
-    chrome.browserAction.onClicked.addListener(function callback() {
-        console.log('xxx')
-    });
 
-    chrome.runtime.onInstalled.addListener(function callback() {
+    // chrome.webRequest.onCompleted.addListener(function(details) {
+    //     //console.log('拦截请求', details);
+    // }, { urls: ["<all_urls>"] }, ["responseHeaders"]);
 
-    })
+
+
     var app = new Vue({
         el: "#J-Whatsrun-App",
         data: {
