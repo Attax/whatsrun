@@ -29,27 +29,50 @@
 
     // }, 2000);
 
+
+
+
     const EXTENSION_URL = /chrome:\/\/\w+/;
 
+    var _clicked = false;
+
+
+
     chrome.browserAction.onClicked.addListener(function(tab) {
+        if (_clicked) return false;
+        if (!tab.url || EXTENSION_URL.test(tab.url)) {
+            return false;
+        }
 
+        /*
         chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
-            console.info(tabs)
 
-            if (!tabs[0].url || EXTENSION_URL.test(tabs[0].url)) {
-                return false;
-            }
-            console.log(EXTENSION_URL.test(tabs[0].url))
-                //发送注入命令
+            //标签页没有加载完成，不允许通信
+            if (tabs[0].status !== 'complete') return false;
+
+            _clicked = true;
+            //发送注入命令
             chrome.tabs.sendMessage(tabs[0].id, { action: "Inject" }, function(response) {
-                console.log(response);
+                _clicked = false;
                 chrome.browserAction.setTitle({
                     title: '注入iframe:' + response.result
                 }, function(result) {
 
                 });
             });
+
         });
+
+        */
+
+        console.log(chrome.extension.getURL('static/js/injector.js'))
+
+        chrome.tabs.executeScript({
+            file: 'static/js/injector.js'
+        });
+
+
+
 
 
 
