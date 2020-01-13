@@ -37,6 +37,7 @@
         "webRequest",
         "webNavigation",
         "storage",
-        "notifications"
+        "notifications",
+        "activeTab"
     ]
 }
