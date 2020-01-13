@@ -27,6 +27,7 @@
         "run_at": "document_start"
     }],
     "permissions": [
+        "*://*/*",
         "cookies",
         "http://*/*",
         "https://*/*",
@@ -39,5 +40,6 @@
         "storage",
         "notifications",
         "activeTab"
-    ]
+    ],
+    "web_accessible_resources": ["iframe.html"]
 }
