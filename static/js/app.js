@@ -11,17 +11,26 @@
         data: {
             url: null,
             languages: [],
-            stackList: [{
-                name: 'Vue',
-                version: '2.6.10',
-                summary: 'a js framework',
-                id: 1,
+            frontEnd: {},
+            jsFramework: [{
+                name: 'React',
+                version: '16.10.1',
+                github: '',
+                icon: '',
+                homepage: '',
             }, {
-                name: 'jQuery',
-                version: '2.10',
-                summary: 'a js library',
-                id: 2,
-            }]
+                name: 'Vue',
+                version: '2.6.9',
+                github: '',
+                icon: '',
+                homepage: ''
+            }],
+            uiLibrary: [],
+            fontFamily: [],
+            background: {},
+            serverEnd: [],
+            backendFramework: [],
+            backgroundLanguage: [],
         },
         computed: {
             domain: function() {

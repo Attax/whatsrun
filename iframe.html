@@ -6,38 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>What's run with the website-whatsrun.com</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-        
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            overflow: hidden;
-        }
-        
-        .layout-doc {
-            width: 100%;
-            background-color: #fff;
-        }
-    </style>
+    <link rel="stylesheet" href="static/css/app.css">
 </head>
 
 <body>
-    <div class="layout-doc">
-        <div id="layout-header">
-            <h1>我被注入到页面中了</h1>
+    <div class="layout-doc" id="J-Whatsrun-App" v-cloak>
+        <div class="layout-header">
+            <h1 class="title">What's Run With <a class="site" :href="'https://whatsrun.com/siteinfo/'+domain" target="_blank" :title="domain"><span class="abbr domain-abbr">{{domain}}</span></a></h1>
         </div>
-        <div id="layout-container">
-
+        <div class="layout-container">
+            <div class="card-box run-item-list" v-if="jsFramework&&jsFramework.length">
+                <h2 class="panel-title">JavaScript Framework</h2>
+                <div class="panel-body">
+                    <div class="run-item" v-for="(item,key) in jsFramework">
+                        <span>{{item.name}}</span><span>{{item.version}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card-box run-item-list" v-if="uiLibrary&&uiLibrary.length">
+                <h2 class="panel-title">UI Library</h2>
+                <div class="panel-body">
+                    <div class="run-item" v-for="(item,key) in uiLibrary">
+                        <span>{{item.name}}</span><span>{{item.version}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card-box run-item-list" v-if="uiLibrary&&uiLibrary.length">
+                <h2 class="panel-title">Server End</h2>
+                <div class="panel-body">
+                    <div class="run-item" v-for="(item,key) in uiLibrary">
+                        <span>{{item.name}}</span><span>{{item.version}}</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="layout-footer">
-
+        <div class="layout-footer">
+            <h2>Want to see more insights?</h2>
+            <a :href="'https://whatsrun.com/siteinfo/'+domain" target="_blank"><button class="goto-whatsrun">Go to whatsrun.com</button></a>
         </div>
     </div>
+    <script src="static/js/vue.min.js"></script>
+    <script src="static/js/axios.min.js"></script>
+    <script src="static/js/xscanner.js"></script>
+    <script src="static/js/app.js"></script>
 </body>
 
 </html>
