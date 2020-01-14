@@ -8,12 +8,12 @@
     "icons": {
         "16": "icon/favicon-16x16.png",
         "32": "icon/favicon-32x32.png",
-        "48": "icon/android-icon-48x48.png",
-        "128": "icon/apple-icon-120x120.png"
+        "48": "icon/favicon-48x48.png",
+        "128": "icon/favicon-120x120.png"
     },
     "browser_action": {
         "default_title": "What's run",
-        "default_icon": "icon/apple-icon-60x60.png"
+        "default_icon": "icon/favicon-48x48.png"
     },
     "default_locale": "en",
     "background": {
@@ -22,7 +22,6 @@
     "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
     "content_scripts": [{
         "js": ["static/js/vue.min.js", "static/js/axios.min.js", "static/js/content.js"],
-        "css": ["static/css/common.css"],
         "matches": ["http://*/*", "https://*/*"],
         "run_at": "document_start"
     }],
