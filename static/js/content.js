@@ -26,7 +26,7 @@
 
         _frame.id = 'inject-iframe';
         _frame.width = '100%';
-        _frame.style = 'width:470px;height:100%;position:fixed;top:0;right:-470px;z-index:99999;border:1px solid #cc9;background-color:#fff;';
+        _frame.style = 'width:470px;height:100%;position:fixed;top:0;right:0;z-index:99999;border:1px solid #cc9;background-color:#fff;';
 
 
         _doc.appendChild(_frame);
@@ -54,6 +54,7 @@
         _frameBody.appendChild(_contextFrame);
         _injected = true;
 
+        bindHideIframe();
 
     }
 
@@ -71,7 +72,29 @@
 
     });
 
+    function bindEventProxy(element, events, handler) {
+        document.addEventListener(events, function(ev) {
+            var oEvent = ev || event;
+            var target = oEvent.srcElement ? oEvent.srcElement : oEvent.target;
 
+
+
+
+        }, false)
+    }
+
+
+    function bindHideIframe() {
+        document.addEventListener('click', function(ev) {
+            var oEvent = ev || event;
+            var target = oEvent.srcElement ? oEvent.srcElement : oEvent.target;
+
+            var _iframe = document.getElementById('inject-iframe');
+
+            _iframe.style.display = 'none';
+
+        }, false);
+    }
 
 
 })();
