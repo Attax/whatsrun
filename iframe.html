@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>What's run with the website-whatsrun.com</title>
     <link href="https://fonts.googleapis.com/css?family=Fira+Mono|Open+Sans+Condensed:300|Roboto+Condensed|Roboto+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_1619146_9i62ampp0pb.css">
     <link rel="stylesheet" href="static/css/app.css">
 </head>
 
@@ -26,7 +27,8 @@
                             <span class="version"><a :href="item|versionLink" target="_blank">{{item.version}}</a></span>
                         </div>
                         <div class="drawer">
-                            <span class="homepage">{{item.homepage}}</span><span class="opensource">{{item.opensource}}</span>
+                            <span class="homepage"><a :href="item.homepage" target="_blank"><i class="iconfont icon-home"></i></a></span>
+                            <span class="opensource"><a :href="item.source" target="_blank"><i class="iconfont" :class="item.openSourceType|openSourceType"></i></a></span>
                         </div>
                     </div>
                 </div>
@@ -56,7 +58,8 @@
                             <span class="version"><a :href="item|versionLink" target="_blank">{{item.version}}</a></span>
                         </div>
                         <div class="drawer">
-                            <span class="homepage">{{item.homepage}}</span><span class="opensource">{{item.opensource}}</span>
+                            <span class="homepage"><a :href="item.homepage" target="_blank"><i class="iconfont"></i></a></span>
+                            <span class="opensource"><a :href="item.opensource" target="_blank"><i class="iconfont"></i></a></span>
                         </div>
                     </div>
                 </div>

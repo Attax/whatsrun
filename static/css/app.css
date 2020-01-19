@@ -127,7 +127,7 @@ body {
 .run-item {
     font-family: "Roboto Mono", monospace;
     border-bottom: 1px solid #EFEFEF;
-    padding: 10px 20px;
+    padding: 10px 0 10px 20px;
     font-size: 14px;
     line-height: 24px;
     vertical-align: top;
@@ -262,8 +262,17 @@ body {
 
 .run-item .drawer {
     display: inline-flex;
-    width: 80px;
+    width: 60px;
     text-align: right;
+}
+
+.drawer .homepage {
+    color: rgba(0, 0, 0, 0.54);
+    margin-right: 10px;
+}
+
+.drawer .iconfont {
+    color: rgba(0, 0, 0, 0.54);
 }
 
 .layout-footer {

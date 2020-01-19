@@ -15,27 +15,31 @@
             jsFramework: [{
                 name: 'React',
                 version: '16.10.1',
-                github: '',
+                source: 'https://github.com/facebook/react',
+                openSourceType: 'github',
                 icon: '',
-                homepage: '',
+                homepage: 'https://react.org',
             }, {
                 name: 'Vue',
                 version: '2.6.9',
-                github: '',
+                source: 'https://github.com/vue/vue',
+                openSourceType: 'github',
                 icon: '',
-                homepage: ''
+                homepage: 'https://vue.org/'
             }, {
                 name: 'Angular',
                 version: '16.10.1',
-                github: '',
+                source: 'https://github.com/google/angular',
+                openSourceType: 'github',
                 icon: '',
-                homepage: '',
+                homepage: 'https://angular.org',
             }, {
                 name: 'AngularJS',
                 version: '2.6.9',
-                github: '',
+                source: 'https://github.com/google/angularjs',
+                openSourceType: 'github',
                 icon: '',
-                homepage: ''
+                homepage: 'https://angularjs.org'
             }, {
                 name: 'jQuery',
                 version: '16.10.1',
@@ -166,7 +170,9 @@
                 }
 
                 return !item.version ? `https://whatsrun.com/stackinfo/${item.name.toLowerCase()}` : `https://whatsrun.com/stackinfo/${item.name.toLowerCase()}?ver=${item.version.toLowerCase()}`;
-
+            },
+            openSourceType: function(sourceType) {
+                return !sourceType ? '' : 'icon-' + sourceType;
             }
         },
         methods: {
