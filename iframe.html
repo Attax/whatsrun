@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>What's run with the website-whatsrun.com</title>
+    <link href="https://fonts.googleapis.com/css?family=Fira+Mono|Open+Sans+Condensed:300|Roboto+Condensed|Roboto+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="static/css/app.css">
 </head>
 
@@ -19,7 +20,14 @@
                 <h2 class="panel-title">JavaScript Framework</h2>
                 <div class="panel-body">
                     <div class="run-item" v-for="(item,key) in jsFramework">
-                        <span>{{item.name}}</span><span>{{item.version}}</span>
+                        <div class="cabinet">
+                            <i class="icon iconfont" :class="item.name|lowercase"></i>
+                            <span class="name"><a :href="item|nameLink" target="_blank">{{item.name}}</a></span>
+                            <span class="version"><a :href="item|versionLink" target="_blank">{{item.version}}</a></span>
+                        </div>
+                        <div class="drawer">
+                            <span class="homepage">{{item.homepage}}</span><span class="opensource">{{item.opensource}}</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -27,15 +35,44 @@
                 <h2 class="panel-title">UI Library</h2>
                 <div class="panel-body">
                     <div class="run-item" v-for="(item,key) in uiLibrary">
-                        <span>{{item.name}}</span><span>{{item.version}}</span>
+                        <div class="cabinet">
+                            <i class="icon iconfont" :class="item.name|lowercase"></i>
+                            <span class="name"><a :href="item|nameLink" target="_blank">{{item.name}}</a></span>
+                            <span class="version"><a :href="item|versionLink" target="_blank">{{item.version}}</a></span>
+                        </div>
+                        <div class="drawer">
+                            <span class="homepage">{{item.homepage}}</span><span class="opensource">{{item.opensource}}</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="card-box run-item-list" v-if="uiLibrary&&uiLibrary.length">
+            <div class="card-box run-item-list" v-if="uiLibrary&&serverEnd.length">
+                <h2 class="panel-title">Server End Language</h2>
+                <div class="panel-body">
+                    <div class="run-item" v-for="(item,key) in background">
+                        <div class="cabinet">
+                            <i class="icon iconfont" :class="item.name|lowercase"></i>
+                            <span class="name"><a :href="item|nameLink" target="_blank">{{item.name}}</a></span>
+                            <span class="version"><a :href="item|versionLink" target="_blank">{{item.version}}</a></span>
+                        </div>
+                        <div class="drawer">
+                            <span class="homepage">{{item.homepage}}</span><span class="opensource">{{item.opensource}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-box run-item-list" v-if="uiLibrary&&serverEnd.length">
                 <h2 class="panel-title">Server End</h2>
                 <div class="panel-body">
-                    <div class="run-item" v-for="(item,key) in uiLibrary">
-                        <span>{{item.name}}</span><span>{{item.version}}</span>
+                    <div class="run-item" v-for="(item,key) in serverEnd">
+                        <div class="cabinet">
+                            <i class="icon iconfont" :class="item.name|lowercase"></i>
+                            <span class="name"><a :href="item|nameLink" target="_blank">{{item.name}}</a></span>
+                            <span class="version"><a :href="item|versionLink" target="_blank">{{item.version}}</a></span>
+                        </div>
+                        <div class="drawer">
+                            <span class="homepage">{{item.homepage}}</span><span class="opensource">{{item.opensource}}</span>
+                        </div>
                     </div>
                 </div>
             </div>

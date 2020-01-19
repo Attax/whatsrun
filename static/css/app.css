@@ -58,7 +58,7 @@ body {
 }
 
 body {
-    font-family: "Segoe UI", Arial, "Microsoft Yahei", sans-serif;
+    font-family: "Roboto Mono", "Fira Mono", monospace, "Segoe UI", Consolas, Arial, "Microsoft Yahei", sans-serif;
     font-size: 75%;
     background-color: rgb(245, 249, 253);
     color: #333;
@@ -99,6 +99,7 @@ body {
     font-size: 16px;
     color: rgb(42, 62, 82);
     font-weight: 500;
+    font-family: "Roboto Mono", monospace;
 }
 
 .abbr {
@@ -121,8 +122,148 @@ body {
     border-bottom: 1px solid #EFEFEF;
 }
 
-.panel-body {
+.panel-body {}
+
+.run-item {
+    font-family: "Roboto Mono", monospace;
+    border-bottom: 1px solid #EFEFEF;
     padding: 10px 20px;
+    font-size: 14px;
+    line-height: 24px;
+    vertical-align: top;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+.run-item:last-child {
+    border-bottom: none;
+}
+
+.run-item .cabinet,
+.run-item .drawer {
+    display: inline-flex;
+    line-height: 24px;
+    height: 24px;
+    vertical-align: top;
+}
+
+.run-item span {
+    display: inline-block;
+    height: 24px;
+    line-height: 24px;
+    vertical-align: top;
+}
+
+.run-item .icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 2px;
+    vertical-align: top;
+    background-image: url("https://www.whatruns.com/imgs/Piwik.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-right: 10px;
+}
+
+.run-item .icon.jquery {
+    background-image: url("https://www.whatruns.com/imgs/jQuery.png");
+}
+
+.run-item .icon.react {
+    background-image: url("https://www.whatruns.com/imgs/React.png");
+}
+
+.run-item .icon.vue {
+    background-image: url("https://www.whatruns.com/imgs/Vue.js.png");
+}
+
+.run-item .icon.angularjs {
+    background-image: url("https://www.whatruns.com/imgs/Angularjs.png");
+}
+
+.run-item .icon.angular {
+    background-image: url("https://angular.cn/assets/images/favicons/favicon-32x32.png");
+}
+
+.run-item .icon.ember {
+    background-image: url("https://www.whatruns.com/imgs/Ember.js.png");
+}
+
+.run-item .icon.backbone {
+    background-image: url("https://www.whatruns.com/imgs/Backbone.js.png");
+}
+
+.run-item .icon.bootstrap {
+    background-image: url("https://www.whatruns.com/imgs/Twitter%20Bootstrap.png");
+}
+
+.run-item .icon.apache {
+    background-image: url("https://www.whatruns.com/imgs/Apache.png");
+}
+
+.run-item .icon.nginx {
+    background-image: url("https://www.whatruns.com/imgs/Nginx.svg");
+}
+
+.run-item .icon.tengine {
+    background-image: url("https://www.whatruns.com/imgs/Tengine.png");
+}
+
+.run-item .icon.nodejs {
+    background-image: url("https://www.whatruns.com/imgs/node.js.png");
+}
+
+.run-item .icon.scoketio {
+    background-image: url("https://www.whatruns.com/imgs/Socket.io.png");
+}
+
+.run-item .icon.lua {
+    background-image: url("https://www.whatruns.com/imgs/Lua.png");
+}
+
+.run-item .icon.openresty {
+    background-image: url("https://www.whatruns.com/imgs/OpenResty.png");
+}
+
+.run-item .icon.java {
+    background-image: url("https://www.whatruns.com/imgs/Java.png");
+}
+
+.run-item .icon.php {
+    background-image: url("https://www.whatruns.com/imgs/PHP.png");
+}
+
+.run-item .icon.python {
+    background-image: url("https://www.whatruns.com/imgs/Python.png");
+}
+
+.run-item .name {
+    color: #f87353;
+    margin-right: 10px;
+}
+
+.run-item .name a {
+    color: #1976d2;
+}
+
+.run-item .version {
+    font-size: 12px;
+    vertical-align: bottom;
+}
+
+.run-item .version a {
+    color: #f87353;
+}
+
+.run-item .drawer {
+    display: inline-flex;
+    width: 80px;
+    text-align: right;
 }
 
 .layout-footer {

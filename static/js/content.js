@@ -73,16 +73,6 @@
 
     });
 
-    function bindEventProxy(element, events, handler) {
-        document.addEventListener(events, function(ev) {
-            var oEvent = ev || event;
-            var target = oEvent.srcElement ? oEvent.srcElement : oEvent.target;
-
-
-
-
-        }, false)
-    }
 
 
     function bindHideIframe() {
