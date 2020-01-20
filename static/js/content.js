@@ -27,7 +27,7 @@
 
         _frame.id = 'inject-iframe';
         _frame.width = '100%';
-        _frame.style = 'width:480px;height:100%;position:fixed;top:0;right:0;z-index:99999;border:1px solid #cc9;background-color:#fff;';
+        _frame.style = 'width:480px;height:100%;position:fixed;top:0;right:0;z-index:99999;border:1px solid #efefef;background-color:#fff;';
 
 
         _doc.appendChild(_frame);
