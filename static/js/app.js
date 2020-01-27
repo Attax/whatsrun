@@ -151,7 +151,7 @@
                 if (this.url) {
                     return this.url.hostname;
                 }
-            }
+            },
         },
         filters: {
             lowercase: function(value) {
@@ -186,6 +186,13 @@
 
                 return '';
 
+            },
+            chromei18n: function(message) {
+                if (chrome.i18n.getMessage) {
+                    return chrome.i18n.getMessage(message)
+                }
+
+                return message;
             }
         },
         methods: {

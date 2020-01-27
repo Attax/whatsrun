@@ -15,11 +15,7 @@
 
         chrome.tabs.sendMessage(tab.id, { action: "Inject" }, function(response) {
             if (response) {
-                chrome.browserAction.setTitle({
-                    title: '注入iframe:' + response.result
-                }, function(result) {
 
-                });
             }
             //fuck google chrome developers 
             //只要有这个，就不会因为错误，中断代码执行

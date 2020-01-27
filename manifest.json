@@ -1,6 +1,6 @@
 {
     "name": "What's run",
-    "description": "what is run in this website?",
+    "description": "what is run with this website?",
     "version": "0.0.01",
     "manifest_version": 2,
     "author": "github.com/Attax",
@@ -12,7 +12,7 @@
         "128": "icon/favicon-120x120.png"
     },
     "browser_action": {
-        "default_title": "What's run",
+        "default_title": "What's run with the website",
         "default_icon": "icon/favicon-48x48.png"
     },
     "default_locale": "en",
@@ -23,7 +23,7 @@
     "content_scripts": [{
         "js": ["static/js/vue.min.js", "static/js/axios.min.js", "static/js/content.js"],
         "matches": ["http://*/*", "https://*/*"],
-        "run_at": "document_start"
+        "run_at": "document_end"
     }],
     "permissions": [
         "*://*/*",
