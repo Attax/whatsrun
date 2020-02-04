@@ -120,6 +120,7 @@ body {
     max-width: 120px;
     color: rgb(78, 140, 249);
     vertical-align: top;
+    white-space: nowrap;
 }
 
 .panel-title {

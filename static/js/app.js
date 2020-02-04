@@ -10,6 +10,7 @@
         el: "#J-Whatsrun-App",
         data: {
             url: null,
+            appList: [],
             languages: [],
             frontEnd: {},
             jsFramework: [{

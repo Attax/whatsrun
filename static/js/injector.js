@@ -1,46 +1,28 @@
+/**
+ * injector.js 注入器，用于向页面注入检测器 嗅探器等
+ */
 (function() {
-    //是否注入过
-    var _injected = false;
 
-    function injectIframe(config) {
-        var _WIN = window.top.document;
-        var _injected = _WIN.getElementById('inject-iframe');
-        if (_injected) {
-            return false;
+
+    //通过dom appendChild方式引入js检测器，需要在DOMReady之后才能生效
+    document.addEventListener('DOMContentLoaded', function() {
+        var head = document.getElementsByTagName('head')[0];
+
+        if (head) {
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = chrome.extension.getURL('static/js/detector.js');
+
+            var meta = document.createElement('meta');
+            meta.name = 'whatsrun';
+            meta.id = 'whatsrun';
+            head.appendChild(meta);
+            head.appendChild(script);
+
+            meta.addEventListener('ready', function() {
+
+            });
         }
-
-        config = config || {};
-
-        var _doc = _WIN.getElementsByTagName('body')[0];
-
-        var _frame = document.createElement('iframe');
-
-        _frame.id = 'inject-iframe';
-        _frame.width = '100%';
-        _frame.src = 'https://dogedoge.com/';
-
-        _doc.appendChild(_frame);
-    }
-
-
-    //执行注入操作
-    injectIframe();
-
-    /*
-    chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
-
-        if (message.action == 'Inject' && !_injected) {
-            injectIframe();
-            _injected = true;
-            sendResponse({ result: '注入成功' });
-            return false;
-        }
-
-        sendResponse({ result: 'pong' });
-
-    });
-    */
-
-
+    }, false);
 
 })();
