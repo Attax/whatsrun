@@ -47,19 +47,15 @@
                 //当前待检查项
                 var _detectItem = detectionList[appName];
                 //如果检测到该项技术方案存在
-                console.log('result', window.jQuery)
                 if (_detectItem.appChecker && _detectItem.appChecker()) {
                     appList[appName] = {
                         //技术栈名称
-                        appName: appName,
+                        name: appName,
                         //版本
                         version: _detectItem.versionChecker && _detectItem.versionChecker()
                     }
-                    console.log('appchecker', appName)
                 }
             }
-
-            console.log('app', appList)
 
         }
     }
@@ -68,8 +64,5 @@
 
 
     window.appList = appList;
-
-
-
 
 })();

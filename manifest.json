@@ -23,9 +23,9 @@
     "content_scripts": [{
         "js": ["static/js/injector.js"],
         "matches": ["http://*/*", "https://*/*"],
-        "run_at": "document_start"
+        "run_at": "document_idle"
     }, {
-        "js": ["static/js/content.js"],
+        "js": ["static/js/scanner.js", "static/js/content.js"],
         "matches": ["http://*/*", "https://*/*"],
         "run_at": "document_end"
     }],
@@ -44,5 +44,5 @@
         "notifications",
         "activeTab"
     ],
-    "web_accessible_resources": ["iframe.html", "static/js/detector.js"]
+    "web_accessible_resources": ["iframe.html", "static/js/sniffer.js", "static/js/scanner.js", "static/js/detector.js"]
 }

@@ -12,6 +12,7 @@
 
 
     function injectIframe(config) {
+        var config = config || {};
         var _WIN = window.top.document;
         var _injected = _WIN.getElementById('inject-iframe');
         if (_injected) {
@@ -59,19 +60,20 @@
 
     }
 
-    //此处使用runtime还是extension 存疑，网上两种都有，runtime居多
-    chrome.extension.onMessage.addListener(function(message, sender, sendResponse) {
 
-        if (message.action == 'Inject') {
+    //设置一个 runtime.onMessage 事件监听器来处理消息
+    chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+        //收到注入指令后，注入iframe
+        if (request.action == 'Inject') {
             injectIframe();
-
-            sendResponse({ result: '注入成功' });
+            sendResponse({ 'result': 'injected' });
             return false;
         }
-
-        sendResponse({ result: 'pong' });
-
+        sendResponse();
     });
+
+
+
 
 
 
@@ -86,6 +88,10 @@
 
         }, false);
     }
+
+
+
+
 
 
 })();

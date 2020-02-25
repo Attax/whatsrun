@@ -1,11 +1,5 @@
 (function() {
 
-    // chrome.webRequest.onCompleted.addListener(function(details) {
-    //     //console.log('拦截请求', details);
-    // }, { urls: ["<all_urls>"] }, ["responseHeaders"]);
-
-
-
     var app = new Vue({
         el: "#J-Whatsrun-App",
         data: {
@@ -201,6 +195,7 @@
 
                 this.initi18n();
                 this.initScroller();
+                this.getApp();
 
             },
             initi18n: function() {
@@ -229,15 +224,29 @@
                 chrome.tabs.getSelected(null, function(tab) {
                     _that.url = new URL(tab.url);
                 });
+            },
+
+            getApp: function() {
+                chrome.extension.sendMessage({ action: "getApp" }, function(response) {
+                    console.log('getApp:', response);
+                    //fuck google chrome developers 
+                    //只要有这个，就不会因为错误，中断代码执行
+                    chrome.runtime.lastError
+                    return true
+                });
+            },
+
+            getAppFromStorage: function() {
+                chrome.storage.sync.get('headers', function(result) {
+                    console.log('headers存储成功', result);
+                });
             }
 
         },
         created: function() {
             this.getDomain();
-            console.log('created')
         },
         mounted() {
-            console.log('mounted');
             this.init();
 
         },
