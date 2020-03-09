@@ -523,12 +523,12 @@ var appinfo = {
     },
     'Backbone.js': {
         icon: 'Backbone.png',
-        homepage: 'http://documentcloud.github.com/backbone/',
+        homepage: 'http://documentcloud.source.com/backbone/',
         priority: 1.9
     },
     'Underscore.js': {
         icon: 'Underscore.png',
-        homepage: 'http://documentcloud.github.com/underscore/',
+        homepage: 'http://documentcloud.source.com/underscore/',
         priority: 2.9
     },
 
@@ -666,7 +666,7 @@ var appinfo = {
     },
     'Bootstrap': {
         icon: 'bootstrap.ico',
-        homepage: 'http://twitter.github.com/bootstrap/',
+        homepage: 'http://twitter.source.com/bootstrap/',
         priority: 5
     },
     'Ning': {
@@ -809,3 +809,138 @@ var appinfo = {
         homepage: 'http://google.com/search?q=%s'
     }
 };
+
+var jsFramework = [{
+    name: 'React',
+    version: '16.10.1',
+    source: 'https://source.com/facebook/react',
+    icon: '',
+    homepage: 'https://react.org',
+}, {
+    name: 'Vue',
+    version: '2.6.9',
+    source: 'https://gitee.com/vue/vue',
+    icon: '',
+    homepage: 'https://vue.org/'
+}, {
+    name: 'Angular',
+    version: '16.10.1',
+    source: 'https://bitbucket.com/google/angular',
+    icon: '',
+    homepage: 'https://angular.org',
+}, {
+    name: 'AngularJS',
+    version: '2.6.9',
+    source: 'https://source.com/google/angularjs',
+    icon: '',
+    homepage: 'https://angularjs.org'
+}, {
+    name: 'jQuery',
+    version: '16.10.1',
+    source: null,
+    icon: '',
+    homepage: '',
+}, {
+    name: 'Backbone',
+    version: '2.6.9',
+    source: null,
+    icon: '',
+    homepage: ''
+}, {
+    name: 'Ember',
+    version: '16.10.1',
+    source: null,
+    icon: '',
+    homepage: '',
+}, ];
+
+var serverList = [{
+    name: 'Apache',
+    source: null,
+    icon: '',
+    homepage: '',
+}, {
+    name: 'Nginx',
+    source: null,
+    icon: '',
+    homepage: ''
+}, {
+    name: 'IIS',
+    source: null,
+    icon: '',
+    homepage: ''
+}, {
+    name: 'OpenResty',
+    source: null,
+    icon: '',
+    homepage: ''
+}, {
+    name: 'Tengine',
+    source: null,
+    icon: '',
+    homepage: ''
+}, {
+    name: 'Lighttpd',
+    source: null,
+    icon: '',
+    homepage: '',
+}];
+
+
+var uiLibrary = [{
+    name: 'Bootstrap',
+    version: '4.10.1',
+    source: null,
+    icon: '',
+    homepage: '',
+}, {
+    name: 'ElementUI',
+    version: '2.6.9',
+    source: null,
+    icon: '',
+    homepage: ''
+}, {
+    name: 'Materialize',
+    version: '16.10.1',
+    source: null,
+    icon: '',
+    homepage: '',
+}, {
+    name: 'Foundation',
+    version: '2.6.9',
+    source: null,
+    icon: '',
+    homepage: ''
+}];
+
+var serverLang = [{
+    name: 'PHP',
+    version: '16.10.1',
+    source: null,
+    icon: '',
+    homepage: '',
+}, {
+    name: 'Java',
+    version: '2.6.9',
+    source: null,
+    icon: '',
+    homepage: ''
+}, {
+    name: 'Python',
+    version: '3.3.1',
+    source: null,
+    icon: '',
+    homepage: '',
+}, {
+    name: 'Lua',
+    version: '2.6.9',
+    source: null,
+    icon: '',
+    homepage: ''
+}, {
+    name: 'Node.js',
+    version: '2.6.9',
+    source: null,
+    icon: '',
+    homepage: ''
+}, ];

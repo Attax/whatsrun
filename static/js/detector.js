@@ -11,20 +11,28 @@
     var detectionList = {
         'jQuery': {
             appChecker: function() {
-                return window.jQuery;
+                return window.jQuery
             },
 
             versionChecker: function() {
 
             }
         },
-    };
+
+        'YUI': {
+            appChecker: function() {
+                return window.YUI;
+            }
+        },
+    }
+
+
+
 
 
     var detector = function() {
         var _that = this;
         _that.apps = {};
-        _that.init();
     }
 
     detector.prototype = {
@@ -56,13 +64,33 @@
                     }
                 }
             }
-
         }
     }
 
-    var scanner = new detector();
+    var dt = new detector();
 
+    dt.init();
 
     window.appList = appList;
+
+    console.log(appList)
+
+
+    setTimeout(function() {
+        dt.init();
+
+        chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+            console.log(request)
+            if (request.action == 'detect') {
+                sendResponse(appList);
+                return false;
+            }
+
+
+        });
+
+
+        console.log('detc', appList);
+    }, 2000)
 
 })();

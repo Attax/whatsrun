@@ -52,10 +52,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-box run-item-list" v-if="uiLibrary&&serverEnd.length">
-                        <h2 class="panel-title">Server End Language</h2>
+                    <div class="card-box run-item-list" v-if="serverLang&&serverLang.length">
+                        <h2 class="panel-title">Server End Language/Web Framework</h2>
                         <div class="panel-body">
-                            <div class="run-item" v-for="(item,key) in background">
+                            <div class="run-item" v-for="(item,key) in serverLang">
                                 <div class="cabinet">
                                     <i class="icon iconfont" :class="item.name|lowercase"></i>
                                     <span class="name"><a :href="item|nameLink" target="_blank">{{item.name}}</a></span>
@@ -69,17 +69,19 @@
                         </div>
                     </div>
 
-                    <div class="card-box run-item-list" v-if="uiLibrary&&serverEnd.length">
-                        <h2 class="panel-title">Server End</h2>
+                    <div class="card-box run-item-list" v-if="serverList&&serverList.length">
+                        <h2 class="panel-title">Server</h2>
                         <div class="panel-body">
-                            <div class="run-item" v-for="(item,key) in serverEnd">
+                            <div class="run-item" v-for="(item,key) in serverList">
                                 <div class="cabinet">
                                     <i class="icon iconfont" :class="item.name|lowercase"></i>
                                     <span class="name"><a :href="item|nameLink" target="_blank">{{item.name}}</a></span>
                                     <span class="version"><a :href="item|versionLink" target="_blank">{{item.version}}</a></span>
                                 </div>
                                 <div class="drawer">
-                                    <span class="homepage">{{item.homepage}}</span><span class="opensource">{{item.opensource}}</span>
+                                    <span :class="{'homepage':item.homepage}"><a :href="item.homepage?item.homepage:'javascript:;'" target="_blank"><i class="iconfont" :class="item.homepage?'icon-home':''"></i></a></span>
+                                    <span :class="{'opensource':item.source}"><a :href="item.source" target="_blank"><i class="iconfont" :class="item.source|openSourceType"></i></a></span>
+                                    <span class="link"><a :href="item|nameLink" target="_blank"><i class="iconfont icon-link"></i></a></span>
                                 </div>
                             </div>
                         </div>
@@ -95,6 +97,7 @@
     <script src="static/js/bscroll.min.js"></script>
     <script src="static/js/vue.min.js"></script>
     <script src="static/js/axios.min.js"></script>
+    <script src="static/js/app.config.js"></script>
     <script src="static/js/app.js"></script>
 </body>
 

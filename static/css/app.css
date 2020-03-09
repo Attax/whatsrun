@@ -117,7 +117,7 @@ body {
 }
 
 .domain-abbr {
-    max-width: 120px;
+    max-width: 280px;
     color: rgb(78, 140, 249);
     vertical-align: top;
     white-space: nowrap;
@@ -219,8 +219,20 @@ body {
     background-image: url("https://www.whatruns.com/imgs/Nginx.svg");
 }
 
+.run-item .icon.iis {
+    background-image: url("https://www.whatruns.com/imgs/Nginx.svg");
+}
+
+.run-item .icon.tomcat {
+    background-image: url("https://www.whatruns.com/imgs/Nginx.svg");
+}
+
 .run-item .icon.tengine {
     background-image: url("https://www.whatruns.com/imgs/Tengine.png");
+}
+
+.run-item .icon.lighttpd {
+    background-image: url("https://www.whatruns.com/imgs/lighttpd.png");
 }
 
 .run-item .icon.nodejs {

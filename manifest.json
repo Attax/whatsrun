@@ -13,7 +13,7 @@
     },
     "browser_action": {
         "default_title": "What's run with the website",
-        "default_icon": "icon/favicon-48x48.png"
+        "default_icon": "icon/disabled.png"
     },
     "default_locale": "en",
     "background": {
@@ -23,7 +23,7 @@
     "content_scripts": [{
         "js": ["static/js/injector.js"],
         "matches": ["http://*/*", "https://*/*"],
-        "run_at": "document_idle"
+        "run_at": "document_end"
     }, {
         "js": ["static/js/scanner.js", "static/js/content.js"],
         "matches": ["http://*/*", "https://*/*"],

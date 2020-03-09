@@ -7,139 +7,12 @@
             appList: [],
             languages: [],
             frontEnd: {},
-            jsFramework: [{
-                name: 'React',
-                version: '16.10.1',
-                source: 'https://github.com/facebook/react',
-                icon: '',
-                homepage: 'https://react.org',
-            }, {
-                name: 'Vue',
-                version: '2.6.9',
-                source: 'https://gitee.com/vue/vue',
-                icon: '',
-                homepage: 'https://vue.org/'
-            }, {
-                name: 'Angular',
-                version: '16.10.1',
-                source: 'https://bitbucket.com/google/angular',
-                icon: '',
-                homepage: 'https://angular.org',
-            }, {
-                name: 'AngularJS',
-                version: '2.6.9',
-                source: 'https://github.com/google/angularjs',
-                icon: '',
-                homepage: 'https://angularjs.org'
-            }, {
-                name: 'jQuery',
-                version: '16.10.1',
-                github: '',
-                icon: '',
-                homepage: '',
-            }, {
-                name: 'Backbone',
-                version: '2.6.9',
-                github: '',
-                icon: '',
-                homepage: ''
-            }, {
-                name: 'Ember',
-                version: '16.10.1',
-                github: '',
-                icon: '',
-                homepage: '',
-            }, ],
-            uiLibrary: [{
-                name: 'Bootstrap',
-                version: '4.10.1',
-                github: '',
-                icon: '',
-                homepage: '',
-            }, {
-                name: 'ElementUI',
-                version: '2.6.9',
-                github: '',
-                icon: '',
-                homepage: ''
-            }, {
-                name: 'Materialize',
-                version: '16.10.1',
-                github: '',
-                icon: '',
-                homepage: '',
-            }, {
-                name: 'Foundation',
-                version: '2.6.9',
-                github: '',
-                icon: '',
-                homepage: ''
-            }],
+            jsFramework: jsFramework,
+            uiLibrary: uiLibrary,
             fontFamily: [],
-            background: [{
-                name: 'PHP',
-                version: '16.10.1',
-                github: '',
-                icon: '',
-                homepage: '',
-            }, {
-                name: 'Java',
-                version: '2.6.9',
-                github: '',
-                icon: '',
-                homepage: ''
-            }, {
-                name: 'Python',
-                version: '3.3.1',
-                github: '',
-                icon: '',
-                homepage: '',
-            }, {
-                name: 'Lua',
-                version: '2.6.9',
-                github: '',
-                icon: '',
-                homepage: ''
-            }, {
-                name: 'Node.js',
-                version: '2.6.9',
-                github: '',
-                icon: '',
-                homepage: ''
-            }, ],
-            serverEnd: [{
-                name: 'Apache',
-                version: '2.4.7',
-                github: '',
-                icon: '',
-                homepage: '',
-            }, {
-                name: 'Nginx',
-                version: '1.18.1',
-                github: '',
-                icon: '',
-                homepage: ''
-            }, {
-                name: 'OpenResty',
-                version: '1.18.1',
-                github: '',
-                icon: '',
-                homepage: ''
-            }, {
-                name: 'Tengine',
-                version: '1.18.1',
-                github: '',
-                icon: '',
-                homepage: ''
-            }, {
-                name: 'LightHttped',
-                version: '16.10.1',
-                github: '',
-                icon: '',
-                homepage: '',
-            }],
+            serverList: [],
             backendFramework: [],
-            backgroundLanguage: [],
+            serverLang: serverLang,
         },
         computed: {
             domain: function() {
@@ -195,6 +68,7 @@
 
                 this.initi18n();
                 this.initScroller();
+                this.detect();
                 this.getApp();
 
             },
@@ -226,9 +100,23 @@
                 });
             },
 
+            detect: function() {
+                //监听detect事件
+                var _that = this;
+                chrome.extension.sendMessage({ action: "detect" }, function(response) {
+                    console.log('detected:', response);
+                    //fuck google chrome developers 
+                    //只要有这个，就不会因为错误，中断代码执行
+                    chrome.runtime.lastError
+                    return true
+                });
+            },
+
             getApp: function() {
+                var _that = this;
                 chrome.extension.sendMessage({ action: "getApp" }, function(response) {
-                    console.log('getApp:', response);
+                    var _servers = response;
+                    _that.getServer(_servers);
                     //fuck google chrome developers 
                     //只要有这个，就不会因为错误，中断代码执行
                     chrome.runtime.lastError
@@ -240,6 +128,30 @@
                 chrome.storage.sync.get('headers', function(result) {
                     console.log('headers存储成功', result);
                 });
+            },
+
+            getServer: function(servers) {
+                var _that = this;
+                var _serverList = [];
+                if (servers && servers.length) {
+
+                    serverList.forEach(item => {
+                        if (servers.includes(item.name)) {
+                            _serverList.push(item);
+                        }
+                    });
+
+                }
+
+                _that.serverList = _serverList;
+
+                console.log(_that.serverList)
+            },
+
+            getCDN: function() {},
+
+            getCloudService: function() {
+
             }
 
         },
@@ -248,7 +160,7 @@
         },
         mounted() {
             this.init();
-
+            console.log(window.appList)
         },
     });
 })();
